@@ -77,7 +77,7 @@ for generation in range(G):#交配10次 每次只留下1%的人再交配
             #print('mid',mid)
         mask = np.random.randint(0,2,(1,30))#(1*40的矩陣 裡面都是0跟1(0~2))
         son = pop[mid,:]#先把嬤嬤的基因copy給兒子 剩下再把mask是1的用爸爸的基因填
-        father = pop[fid,:]
+        father = pop[fid,:].copy()
         son[mask[0,:]==1] = father[mask[0,:]==1]#son mask=1的位置跟爸爸mask=2的位置基因一樣
         pop[i,:] = son
 
